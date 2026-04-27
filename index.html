@@ -13,27 +13,28 @@
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     html, body, #root { height: 100%; }
 
     :root {
       --accent-hue: 240;
-      --accent:         oklch(0.62 0.22 240);
-      --accent-text:    oklch(0.80 0.16 240);
-      --accent-soft:    oklch(0.62 0.22 240 / 0.12);
-      --accent-line:    oklch(0.62 0.22 240 / 0.30);
+      --accent:         oklch(0.55 0.22 250);
+      --accent-text:    oklch(0.45 0.22 250);
+      --accent-soft:    oklch(0.55 0.22 250 / 0.10);
+      --accent-line:    oklch(0.55 0.22 250 / 0.30);
 
-      --bg:             oklch(0.09 0.010 240);
-      --bg-elev:        oklch(0.13 0.010 240);
+      --bg:             oklch(0.995 0.003 240);
+      --bg-elev:        oklch(0.975 0.005 240);
 
-      --fg:             oklch(0.95 0.005 240);
-      --fg-muted:       oklch(0.60 0.010 240);
-      --fg-subtle:      oklch(0.40 0.008 240);
+      --fg:             oklch(0.18 0.010 240);
+      --fg-muted:       oklch(0.45 0.010 240);
+      --fg-subtle:      oklch(0.62 0.008 240);
 
-      --border:         oklch(0.24 0.010 240 / 0.80);
-      --border-strong:  oklch(0.34 0.010 240);
-      --hairline:       oklch(0.22 0.008 240 / 0.55);
+      --border:         oklch(0.85 0.010 240 / 0.85);
+      --border-strong:  oklch(0.72 0.010 240);
+      --hairline:       oklch(0.88 0.008 240 / 0.60);
 
-      --good:           oklch(0.75 0.14 150);
+      --good:           oklch(0.55 0.16 150);
 
       --font-sans:  'Inter', system-ui, -apple-system, sans-serif;
       --font-mono:  'JetBrains Mono', 'Fira Code', monospace;
@@ -177,9 +178,9 @@
       const tones = {
         neutral: { bg: 'var(--hairline)',                        fg: 'var(--fg-muted)',  dotC: 'var(--fg-subtle)' },
         accent:  { bg: 'var(--accent-soft)',                     fg: 'var(--accent-text)', dotC: 'var(--accent)' },
-        good:    { bg: 'oklch(0.75 0.14 150 / 0.14)',           fg: 'oklch(0.82 0.14 150)', dotC: 'oklch(0.75 0.14 150)' },
-        warn:    { bg: 'oklch(0.82 0.14 85 / 0.14)',            fg: 'oklch(0.88 0.14 85)',  dotC: 'oklch(0.82 0.14 85)' },
-        bad:     { bg: 'oklch(0.68 0.2 25 / 0.14)',             fg: 'oklch(0.76 0.18 25)',  dotC: 'oklch(0.68 0.2 25)' },
+        good:    { bg: 'oklch(0.55 0.16 150 / 0.12)',           fg: 'oklch(0.42 0.16 150)', dotC: 'oklch(0.55 0.16 150)' },
+        warn:    { bg: 'oklch(0.62 0.16 70 / 0.14)',            fg: 'oklch(0.48 0.16 70)',  dotC: 'oklch(0.62 0.16 70)' },
+        bad:     { bg: 'oklch(0.58 0.20 25 / 0.12)',            fg: 'oklch(0.48 0.20 25)',  dotC: 'oklch(0.58 0.20 25)' },
       };
       const t = tones[tone];
       return (
@@ -194,7 +195,7 @@
       const initials = name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase();
       const h = hue ?? ([...name].reduce((a, c) => a + c.charCodeAt(0), 0) * 37) % 360;
       return (
-        <div style={{ width: size, height: size, borderRadius: '50%', background: `oklch(0.68 0.12 ${h} / 0.25)`, color: `oklch(0.85 0.1 ${h})`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-sans)', fontSize: size * 0.38, fontWeight: 600, letterSpacing: '-0.02em', border: `1px solid oklch(0.68 0.12 ${h} / 0.2)`, flexShrink: 0 }}>{initials}</div>
+        <div style={{ width: size, height: size, borderRadius: '50%', background: `oklch(0.72 0.12 ${h} / 0.20)`, color: `oklch(0.38 0.14 ${h})`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-sans)', fontSize: size * 0.38, fontWeight: 600, letterSpacing: '-0.02em', border: `1px solid oklch(0.62 0.12 ${h} / 0.30)`, flexShrink: 0 }}>{initials}</div>
       );
     };
 
@@ -249,10 +250,10 @@
               <Pill tone="accent" dot style={{ marginLeft: 10, fontSize: 10 }}>Agent online</Pill>
             </div>
             <div style={{ display: 'flex', gap: 28, alignItems: 'center', fontSize: 13, color: 'var(--fg-muted)' }}>
-              <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Product</a>
-              <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>How it works</a>
-              <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Pricing</a>
-              <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Changelog</a>
+              <a href="#product" style={{ color: 'inherit', textDecoration: 'none' }}>Product</a>
+              <a href="#how" style={{ color: 'inherit', textDecoration: 'none' }}>How it works</a>
+              <a href="#pricing" style={{ color: 'inherit', textDecoration: 'none' }}>Pricing</a>
+              <a href="#changelog" style={{ color: 'inherit', textDecoration: 'none' }}>Changelog</a>
             </div>
             <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
               <Btn variant="ghost" size="sm">Sign in</Btn>
@@ -369,7 +370,7 @@
       return (
         <div style={{ position: 'relative', zIndex: 2 }}>
           <Rings size={520} style={{ position: 'absolute', right: -80, top: -60, opacity: 0.4, pointerEvents: 'none' }} />
-          <div style={{ position: 'relative', background: 'var(--bg-elev)', border: '1px solid var(--border)', borderRadius: 18, overflow: 'hidden', boxShadow: '0 40px 100px -40px rgba(0,0,0,0.7), 0 0 0 1px color-mix(in oklch, var(--accent) 15%, transparent)' }}>
+          <div style={{ position: 'relative', background: 'var(--bg-elev)', border: '1px solid var(--border)', borderRadius: 18, overflow: 'hidden', boxShadow: '0 30px 80px -40px rgba(20,30,60,0.18), 0 0 0 1px color-mix(in oklch, var(--accent) 18%, transparent)' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 18px', borderBottom: '1px solid var(--hairline)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <div style={{ width: 28, height: 28, borderRadius: 8, background: 'var(--accent-soft)', color: 'var(--accent-text)', display: 'grid', placeItems: 'center' }}><Icons.Bot size={15} /></div>
@@ -450,7 +451,7 @@
 
     function FloatChip({ style, color, label }) {
       return (
-        <div style={{ position: 'absolute', zIndex: 3, background: 'var(--bg-elev)', border: '1px solid var(--border)', padding: '6px 12px', borderRadius: 999, display: 'flex', alignItems: 'center', gap: 8, boxShadow: '0 10px 30px -10px rgba(0,0,0,0.6)', ...style }}>
+        <div style={{ position: 'absolute', zIndex: 3, background: 'var(--bg-elev)', border: '1px solid var(--border)', padding: '6px 12px', borderRadius: 999, display: 'flex', alignItems: 'center', gap: 8, boxShadow: '0 10px 30px -10px rgba(20,30,60,0.12)', ...style }}>
           <span style={{ width: 6, height: 6, borderRadius: '50%', background: color }} />
           <Meta style={{ color: 'var(--fg)' }}>{label}</Meta>
         </div>
@@ -501,7 +502,7 @@
 
     function ProfileDemo() {
       return (
-        <section style={{ maxWidth: 1280, margin: '0 auto', padding: '100px 40px' }}>
+        <section id="product" style={{ maxWidth: 1280, margin: '0 auto', padding: '100px 40px', scrollMarginTop: 80 }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
             <div>
               <Meta>THE DIFFERENCE</Meta>
@@ -673,7 +674,7 @@
 
     function HowItWorks() {
       return (
-        <section style={{ maxWidth: 1280, margin: '0 auto', padding: '100px 40px' }}>
+        <section id="how" style={{ maxWidth: 1280, margin: '0 auto', padding: '100px 40px', scrollMarginTop: 80 }}>
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 48 }}>
             <div>
               <Meta>HOW IT WORKS</Meta>
@@ -851,8 +852,11 @@
     }
 
     function CTASection({ brand }) {
+      const [joined, setJoined] = useSL(false);
+      const [email, setEmail] = useSL('');
+      const submit = (e) => { e && e.preventDefault(); if (!email.trim()) return; setJoined(true); };
       return (
-        <section style={{ maxWidth: 1280, margin: '0 auto', padding: '60px 40px 100px' }}>
+        <section id="pricing" style={{ maxWidth: 1280, margin: '0 auto', padding: '60px 40px 100px', scrollMarginTop: 80 }}>
           <div style={{ position: 'relative', overflow: 'hidden', background: 'var(--bg-elev)', border: '1px solid var(--border)', borderRadius: 24, padding: '80px 60px', textAlign: 'center' }}>
             <Rings size={700} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', opacity: 0.4, pointerEvents: 'none' }} />
             <div style={{ position: 'relative' }}>
@@ -862,10 +866,21 @@
                 <em style={{ color: 'var(--accent-text)' }}>Give it a brief.</em>
               </h2>
               <p style={{ fontSize: 17, color: 'var(--fg-muted)', marginTop: 24, maxWidth: 520, marginInline: 'auto' }}>Free for 14 days. No card. Cancel with a shrug.</p>
-              <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 36 }}>
-                <Btn variant="primary"   size="lg">Start free trial <Icons.Arrow size={16} /></Btn>
-                <Btn variant="secondary" size="lg">Book a walkthrough</Btn>
-              </div>
+              {joined ? (
+                <div style={{ marginTop: 36, display: 'inline-flex', alignItems: 'center', gap: 10, padding: '12px 18px', borderRadius: 999, background: 'var(--accent-soft)', border: '1px solid var(--accent-line)', color: 'var(--accent-text)', fontSize: 14, fontWeight: 500 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--good)' }} />
+                  You're on the list — we'll be in touch.
+                </div>
+              ) : (
+                <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 36, flexWrap: 'wrap' }}>
+                  <Btn variant="primary"   size="lg">Start free trial <Icons.Arrow size={16} /></Btn>
+                  <form onSubmit={submit} style={{ display: 'flex', gap: 8, alignItems: 'center', background: 'var(--bg)', border: '1px solid var(--border-strong)', borderRadius: 999, padding: '4px 4px 4px 16px', height: 48 }}>
+                    <input type="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="you@company.com"
+                      style={{ background: 'transparent', border: 'none', outline: 'none', color: 'var(--fg)', fontSize: 14, fontFamily: 'inherit', width: 220 }} />
+                    <Btn variant="accent" size="md" type="submit">Join the waitlist <Icons.Arrow size={14} /></Btn>
+                  </form>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -874,7 +889,7 @@
 
     function Footer({ brand }) {
       return (
-        <footer style={{ borderTop: '1px solid var(--hairline)', padding: '40px', maxWidth: 1280, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20 }}>
+        <footer id="changelog" style={{ borderTop: '1px solid var(--hairline)', padding: '40px', maxWidth: 1280, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20, scrollMarginTop: 80 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <BrandMark size={18} />
             <Meta>© 2026 {brand.toUpperCase()}. BUILT FOR SALES TEAMS, NOT DASHBOARDS.</Meta>
