@@ -1,0 +1,2 @@
+record_id,business_name,website,best_contact_path,request_received_at,funnel_state,scope_confirmed,owner,delivery_due,evidence_count,reply_status,next_followup,payment_status,notes
+AUD-0001,,,,,request-ready,no,, ,0,not sent,,unverified,"Template row; do not treat as a real prospect or revenue"
