@@ -1,0 +1,22 @@
+{
+  "project": "leadscout",
+  "objective": "Find and execute the fastest legitimate path to verified online revenue using the existing LeadScout missed-call recovery offer.",
+  "created_at": "2026-09-02T11:55:01+00:00",
+  "updated_at": "2026-09-02T11:55:02+00:00",
+  "tasks": [
+    {
+      "id": "task_owner_launch_packet",
+      "title": "Prepare owner-ready launch packet for first approved LeadScout revenue test",
+      "status": "complete",
+      "depends_on": [],
+      "owner": "hermes",
+      "approval": "prepare_only",
+      "created_at": "2026-09-02T11:55:01+00:00",
+      "claimed_by": "hermes",
+      "claimed_at": "2026-09-02T11:55:02+00:00",
+      "artifact": "C:/Users/coppe/Documents/leadscout/revenue/owner-launch-packet.md",
+      "verification": "File exists; includes offer, ICP, concrete personalization gate, approval boundary, send evidence requirements, fulfillment safety gate, and independent revenue evidence definition.",
+      "completed_at": "2026-09-02T11:55:02+00:00"
+    }
+  ]
+}
