@@ -58,6 +58,12 @@ Current state remains:
 - `sent / replied / qualified / opportunity / won / paid`: no evidence
 - **Verified revenue received:** none
 
+## GitHub reuse check
+
+A current public-source search found `peaceiris/actions-gh-pages` (MIT, 5,359 stars, pushed 2026-09-02): https://github.com/peaceiris/actions-gh-pages. It is a credible deployment action, but adding it would introduce an unnecessary workflow/dependency before the owner approves a host and repository setting. The selected path remains: use the existing static files first, enable the owned Pages surface only after approval, and add deployment automation later if repeated publishing becomes necessary.
+
+Other inspected search results were either templates, stale, or framework-specific and are lower fit for this already-built Vite/static wedge.
+
 ## Sources and related artifacts
 
 - Repository: https://github.com/coppercolton/leadscout
