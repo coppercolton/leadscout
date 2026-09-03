@@ -9,7 +9,7 @@ funnel_state: request-ready -> publication-blocked
 # LeadScout Publication Approval Packet
 
 ## Decision
-Use **GitHub Pages from the existing `coppercolton/leadscout` repository, `main` branch, root (`/`)** as the first zero-cost public-host candidate. This is the smallest reversible path because the repository already contains the static homepage, offer page, sample proof page, and no backend dependency.
+Use **GitHub Pages from the existing `coppercolton/leadscout` repository via the committed Actions workflow, `main` branch, and built `dist/` artifact** as the first zero-cost public-host candidate. This is the smallest reversible path because the repository already contains the static homepage, offer page, sample proof page, and no backend dependency.
 
 This packet does **not** enable Pages, change repository settings, send outreach, activate analytics, or configure payment.
 
@@ -28,9 +28,11 @@ This packet does **not** enable Pages, change repository settings, send outreach
 
 Approve or reject this exact destination:
 
-> Publish `coppercolton/leadscout` from `main` / root using GitHub Pages at `https://coppercolton.github.io/leadscout/`.
+> Publish `coppercolton/leadscout` from `main` / `dist/` using GitHub Pages at `https://coppercolton.github.io/leadscout/`.
 
 If approved, the owner must perform the repository Settings → Pages change while signed into the owning GitHub account. The owner should not enable a custom domain, analytics, or form backend during this first test.
+
+The committed `.github/workflows/pages.yml` runs `npm ci`, `npm run build`, and uploads only `dist/`. This preserves the existing root-relative links to `missed-call-recovery.html` and `sample-audit.html`; publishing the repository root would leave those links broken.
 
 ## Post-approval verification checklist
 
