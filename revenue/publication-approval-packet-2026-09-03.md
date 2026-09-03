@@ -23,6 +23,8 @@ This packet does **not** enable Pages, change repository settings, send outreach
   - `https://coppercolton.github.io/leadscout/missed-call-recovery.html`
 - GitHub Pages API endpoint currently returns HTTP 404; no readable Pages configuration was found
 - Local build and read-only preflight pass; no verified public funnel or revenue exists
+- Workflow `Deploy LeadScout to GitHub Pages` is visible and active in GitHub Actions.
+- Verification run `33758764542` built successfully (`Install dependencies` and `Build static site` passed), then stopped at `Setup Pages` with `HttpError: Not Found` because Pages is not enabled for the repository.
 
 ## Owner decision required
 
@@ -32,7 +34,7 @@ Approve or reject this exact destination:
 
 If approved, the owner must perform the repository Settings → Pages change while signed into the owning GitHub account. The owner should not enable a custom domain, analytics, or form backend during this first test.
 
-The committed `.github/workflows/pages.yml` runs `npm ci`, `npm run build`, and uploads only `dist/`. This preserves the existing root-relative links to `missed-call-recovery.html` and `sample-audit.html`; publishing the repository root would leave those links broken.
+The committed `.github/workflows/pages.yml` runs `npm install`, `npm run build`, and uploads only `dist/`. This preserves the existing root-relative links to `missed-call-recovery.html` and `sample-audit.html`; publishing the repository root would leave those links broken.
 
 ## Post-approval verification checklist
 
