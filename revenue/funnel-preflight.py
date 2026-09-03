@@ -25,6 +25,7 @@ PAGES_URLS = [
     "https://coppercolton.github.io/leadscout/",
     "https://coppercolton.github.io/leadscout/missed-call-recovery.html",
 ]
+ACTIONS_RUNS_URL = f"https://api.github.com/repos/{REPO}/actions/runs?per_page=1"
 
 
 def get(url: str, max_bytes: int = 300) -> tuple[int, str]:
@@ -61,6 +62,17 @@ def main() -> int:
     if status == 200:
         metadata = json.loads(body if body.startswith("{") else "{}")
         print(f"default_branch: {metadata.get('default_branch', 'unknown')}")
+
+    status, body = get(ACTIONS_RUNS_URL, max_bytes=100000)
+    print(f"actions_api: {'PASS' if status == 200 else 'FAIL'} (HTTP {status})")
+    if status == 200:
+        runs = json.loads(body if body.startswith("{") else "{}").get("workflow_runs", [])
+        if runs:
+            latest = runs[0]
+            print(f"latest_actions_run: {latest.get('id', 'unknown')} {latest.get('status', 'unknown')}/{latest.get('conclusion', 'unknown')}")
+            print(f"latest_actions_run_url: {latest.get('html_url', 'unknown')}")
+        else:
+            print("latest_actions_run: none")
 
     for asset in ASSETS:
         status, _ = get(RAW_BASE + asset)
