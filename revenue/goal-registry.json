@@ -31,6 +31,20 @@
       "artifact": "C:/Users/coppe/Documents/leadscout/revenue/live-funnel-verification-2026-09-03.md",
       "verification": "git ls-remote and GitHub API repo metadata passed; raw offer/proof assets returned HTTP 200; both assumed GitHub Pages offer URLs returned HTTP 404; Pages API returned HTTP 404.",
       "completed_at": "2026-09-03T04:37:32Z"
+    },
+    {
+      "id": "task_verify_owner_ready_prospect",
+      "title": "Re-verify one official prospect contact path and prepare approval-ready outreach packet",
+      "status": "complete",
+      "depends_on": ["task_verify_live_funnel_surface"],
+      "owner": "hermes",
+      "approval": "prepare_only",
+      "created_at": "2026-09-03T21:21:09Z",
+      "claimed_by": "hermes",
+      "claimed_at": "2026-09-03T21:21:09Z",
+      "artifact": "C:/Users/coppe/Documents/leadscout/revenue/prospect-spyglass-verification-2026-09-03.md",
+      "verification": "Official homepage and contact page each returned HTTP 200; exact CTA routes and mailto:info@spyglassrealty.com were parsed; no message or form submission occurred.",
+      "completed_at": "2026-09-03T21:21:09Z"
     }
   ]
 }
