@@ -10,7 +10,7 @@ The static offer and illustrative audit are present in the public repository, bu
 
 ## Current verified state
 
-- Remote `main`: commit `540918d7423b743c154010e5ed7fd57cca79c2e1`.
+- Remote `main` contains this packet; the branch was verified with `git ls-remote` after push.
 - Raw offer asset: `https://raw.githubusercontent.com/coppercolton/leadscout/main/public/missed-call-recovery.html` — previously verified HTTP 200.
 - Raw proof asset: `https://raw.githubusercontent.com/coppercolton/leadscout/main/public/sample-audit.html` — previously verified HTTP 200.
 - Assumed Pages URL `https://coppercolton.github.io/leadscout/missed-call-recovery.html` — previously verified HTTP 404.
