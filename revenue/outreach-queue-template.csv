@@ -1,0 +1,2 @@
+record_id,business_name,website,contact_name,email,email_confidence,source_url,observation_1,observation_2,offer_angle,subject,draft_body,status,next_followup,reply_status,send_evidence,notes
+PROSPECT-0001,,,,,Unverified,,,,,,,research_more,,,"Template row; never send until email confidence is Found or Likely and a human approves the draft"
