@@ -39,7 +39,7 @@ function createApprovedDrafts() {
     if (confidence !== 'Found' && confidence !== 'Likely') continue;
     if (!observation1 || !observation2 || !subject || !body) continue;
 
-    // Deliberately draft-only: do not replace with GmailApp.sendEmail().
+    // Deliberately draft-only: this function creates drafts and never sends.
     const draft = GmailApp.createDraft(email, subject, body);
     const timestamp = new Date().toISOString();
     sheet.getRange(rowNumber + 1, index.status + 1).setValue('draft_created');
