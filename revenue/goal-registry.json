@@ -2,7 +2,7 @@
   "project": "leadscout",
   "objective": "Find and execute the fastest legitimate path to verified online revenue using the existing LeadScout missed-call recovery offer.",
   "created_at": "2026-09-02T11:55:01+00:00",
-  "updated_at": "2026-09-04T07:47:41+00:00",
+  "updated_at": "2026-09-04T07:48:20+00:00",
   "tasks": [
     {
       "id": "task_owner_launch_packet",
@@ -67,13 +67,16 @@
     {
       "id": "task_refresh_activation_20260904",
       "title": "Refresh zero-cost revenue activation state and verify next approval gate",
-      "status": "in_progress",
+      "status": "complete",
       "depends_on": [],
       "owner": "hermes",
       "approval": "prepare_only",
       "created_at": "2026-09-04T07:47:37+00:00",
       "claimed_by": "hermes",
-      "claimed_at": "2026-09-04T07:47:41+00:00"
+      "claimed_at": "2026-09-04T07:47:41+00:00",
+      "artifact": "revenue/activation-run-2026-09-04-0747.md; local commit 316c8bfa724dc29780b8ad832702364f4826ef30",
+      "verification": "Artifact read-back passed; npm run build passed; git diff --check passed; live LeadScout and official Spyglass surfaces returned HTTP 200; current GitHub reuse candidates were recorded; no external send or payment occurred.",
+      "completed_at": "2026-09-04T07:48:20+00:00"
     }
   ]
 }
