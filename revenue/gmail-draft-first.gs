@@ -2,7 +2,9 @@ const MAX_DRAFTS_PER_RUN = 3;
 const REQUIRED_HEADERS = [
   'record_id', 'business_name', 'website', 'contact_name', 'email',
   'email_confidence', 'source_url', 'observation_1', 'observation_2',
-  'subject', 'draft_body', 'status', 'send_evidence'
+  'subject', 'draft_body', 'status', 'send_evidence',
+  'owner_approval', 'approved_sender', 'approved_mailbox',
+  'approved_terms', 'payment_path'
 ];
 
 /**
@@ -34,10 +36,19 @@ function createApprovedDrafts() {
     const observation2 = String(row[index.observation_2]).trim();
     const subject = String(row[index.subject]).trim();
     const body = String(row[index.draft_body]).trim();
+    const ownerApproval = String(row[index.owner_approval]).trim();
+    const approvedSender = String(row[index.approved_sender]).trim();
+    const approvedMailbox = String(row[index.approved_mailbox]).trim();
+    const approvedTerms = String(row[index.approved_terms]).trim();
+    const paymentPath = String(row[index.payment_path]).trim();
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) continue;
     if (confidence !== 'Found' && confidence !== 'Likely') continue;
     if (!observation1 || !observation2 || !subject || !body) continue;
+    if (ownerApproval !== 'approved') continue;
+    if (!approvedSender || !approvedMailbox || !approvedTerms) continue;
+    if (approvedMailbox.toLowerCase() !== Session.getEffectiveUser().getEmail().toLowerCase()) continue;
+    if (approvedTerms !== 'free pilot' && !paymentPath) continue;
 
     // Deliberately draft-only: this function creates drafts and never sends.
     const draft = GmailApp.createDraft(email, subject, body);
