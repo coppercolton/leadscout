@@ -45,6 +45,20 @@
       "artifact": "C:/Users/coppe/Documents/leadscout/revenue/prospect-spyglass-verification-2026-09-03.md",
       "verification": "Official homepage and contact page each returned HTTP 200; exact CTA routes and mailto:info@spyglassrealty.com were parsed; no message or form submission occurred.",
       "completed_at": "2026-09-03T21:21:09Z"
+    },
+    {
+      "id": "task_refresh_owner_ready_queue_row",
+      "title": "Refresh confidence-gated queue row and independently recheck funnel and official prospect surfaces",
+      "status": "complete",
+      "depends_on": ["task_verify_owner_ready_prospect"],
+      "owner": "hermes",
+      "approval": "prepare_only",
+      "created_at": "2026-09-04T03:36:58Z",
+      "claimed_by": "hermes",
+      "claimed_at": "2026-09-04T03:36:58Z",
+      "artifact": "C:/Users/coppe/Documents/leadscout/revenue/owner-ready-prospect-row-spyglass-2026-09-04.csv",
+      "verification": "LeadScout homepage, offer, and sample plus Spyglass homepage/contact each returned HTTP 200; required CTA/contact strings were present; CSV status is approval_required; no form submission or send occurred.",
+      "completed_at": "2026-09-04T03:36:58Z"
     }
   ]
 }
