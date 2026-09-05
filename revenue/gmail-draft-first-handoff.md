@@ -6,7 +6,7 @@ A zero-cost, human-approved workflow for turning reviewed LeadScout queue rows i
 ## Sheet contract
 Import `outreach-queue-template.csv` into Google Sheets. Required headers:
 
-`record_id,business_name,website,contact_name,email,email_confidence,source_url,observation_1,observation_2,offer_angle,subject,draft_body,status,next_followup,reply_status,send_evidence,notes`
+`record_id,business_name,website,contact_name,email,email_confidence,source_url,observation_1,observation_2,offer_angle,subject,draft_body,status,next_followup,reply_status,send_evidence,owner_approval,approved_sender,approved_mailbox,approved_terms,payment_path,notes`
 
 Allowed initial statuses:
 - `research_more`: missing evidence or contact confidence
